@@ -45,6 +45,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private void Start()
     {
         if (!IsOwner) return;
+
         playerInput = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
@@ -71,6 +72,7 @@ public class PlayerLocomotion : NetworkBehaviour
     {
         base.OnDestroy();
         if (!IsOwner) return;
+
         playerInput.actions["Walk"].performed -= i => ToggleWalk();
         playerInput.actions["Sprint"].performed -= i => OnSprint();
         playerInput.actions["Change Stance"].performed -= context =>
@@ -115,6 +117,7 @@ public class PlayerLocomotion : NetworkBehaviour
     public void SetLookSensitivity(float sensitivity)
     {
         if (!IsOwner) return;
+
         lookSensitivity = sensitivity;
     }
 
@@ -176,6 +179,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private void ToggleWalk()
     {
         if (!IsOwner) return;
+
         if (stance != Stance.Standing) return;
 
         isSprinting = false;
@@ -185,6 +189,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private void OnSprint()
     {
         if (!IsOwner) return;
+
         if (stance != Stance.Standing) return;
 
         isWalking = false;
@@ -204,6 +209,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private void OnCrouch() //press
     {
         if (!IsOwner) return;
+
         Debug.Log("OnCrouch");
 
         if (stance == Stance.Crouching)
@@ -219,6 +225,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private void OnProne() //hold
     {
         if (!IsOwner) return;
+
         Debug.Log("OnProne");
 
         if (stance == Stance.Prone)
@@ -234,6 +241,7 @@ public class PlayerLocomotion : NetworkBehaviour
     private IEnumerator SprintCoroutine()
     {
         if (!IsOwner) yield break;
+
         while (isSprinting)
         {
             if (moveInput.y < 1) isSprinting = false;

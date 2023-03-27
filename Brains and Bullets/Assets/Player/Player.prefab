@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5412283329461428168}
   - component: {fileID: 1606607405874519678}
   - component: {fileID: 1606607405874519655}
-  - component: {fileID: 1606607405874519651}
+  - component: {fileID: 4808092043544993894}
   - component: {fileID: 1606607405874519677}
   - component: {fileID: 2670195086552881663}
   m_Layer: 0
@@ -99,6 +99,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 198d532a-f316-42a9-8a9b-41e3fb78a067
     m_ActionName: Player/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6fe996be-481e-4aeb-bb3f-fbace9449d7c
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af00b679-d230-45bf-8a23-d1686d4a6479
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8f201488-991b-4210-942a-338ff0ab281d
+    m_ActionName: Player/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7716455e-536e-4b08-b977-d93edab332c1
+    m_ActionName: Player/Lean[/Keyboard/q,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -120,7 +136,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1606607405874519651
+--- !u!114 &4808092043544993894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606607405874519654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 1
@@ -164,8 +180,6 @@ MonoBehaviour:
   runSpeed: 6
   sprintSpeed: 8
   cameraRoot: {fileID: 7049025585134026548}
-  aimingXTurnSensitivity: 25
-  aimingYTiltSensitivity: 25
   minY: -55
   maxY: 75
 --- !u!114 &2670195086552881663
@@ -186,6 +200,8 @@ MonoBehaviour:
     type: 3}
   playerAimCam: {fileID: 3471838367925232058, guid: c082c41731d3487499bee669d815d460,
     type: 3}
+  normalSensitivity: 25
+  aimSensitivity: 10
 --- !u!1 &2763780776969458209
 GameObject:
   m_ObjectHideFlags: 0
