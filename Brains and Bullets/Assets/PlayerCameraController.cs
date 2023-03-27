@@ -22,8 +22,9 @@ public class PlayerCameraController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkSpawn();
 
+        base.OnNetworkSpawn();
+        if (!IsOwner) return;
         Instantiate(cam);
         playerFollowCam = Instantiate(playerFollowCam);
         playerAimCam = Instantiate(playerAimCam);
@@ -38,6 +39,7 @@ public class PlayerCameraController : NetworkBehaviour
 
     private void Start()
     {
+        if (!IsOwner) return;
         locomotion = GetComponent<PlayerLocomotion>();
 
         var input = GetComponent<PlayerInput>();
@@ -48,6 +50,7 @@ public class PlayerCameraController : NetworkBehaviour
 
     public override void OnDestroy()
     {
+        if (!IsOwner) return;
         var input = GetComponent<PlayerInput>();
         input.actions["Aim"].performed -= OnAimStart;
         input.actions["Aim"].canceled -= OnAimEnd;
@@ -77,6 +80,8 @@ public class PlayerCameraController : NetworkBehaviour
 
     private IEnumerator SmoothCameraSide(float value)
     {
+        if (!IsOwner) yield break;
+
         float t = 0, timeToMove = 0.1f;
         while(t < timeToMove)
         {
